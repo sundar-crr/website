@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Axeron Engineering Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1F3556;
+    --steel: #2F4A6D;
+    --orange: #F28C28;
+    --orange-dark: #d4751a;
+    --white: #FFFFFF;
+    --light-bg: #F5F7FA;
+    --text-grey: #6B7280;
+    --text-dark: #1a2535;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-dark);
+    background: var(--white);
+  }
+
+  h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+
+  /* ===== HEADER ===== */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--navy);
+    z-index: 1000;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+.logo-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+  
+
+  .logo-text { line-height: 1.1; }
+  .logo-text .brand { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.2rem; color: #fff; letter-spacing: 1px; }
+  .logo-text .sub { font-size: 0.6rem; color: rgba(255,255,255,0.6); letter-spacing: 2px; text-transform: uppercase; }
+
+  nav { display: flex; align-items: center; gap: 0.25rem; }
+
+  nav a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 0.4rem 0.75rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  nav a:hover, nav a.active { color: var(--orange); background: rgba(255,255,255,0.06); }
+
+  .btn-quote {
+    background: var(--orange);
+    color: white !important;
+    padding: 0.45rem 1.1rem !important;
+    border-radius: 4px !important;
+    margin-left: 0.5rem;
+    transition: background 0.2s !important;
+  }
+  .btn-quote:hover { background: var(--orange-dark) !important; color: white !important; }
+
+  /* ===== PAGES ===== */
+ .page {
+  display: none;
+  padding-top: 70px;
+  margin-top: 0;
+  }
+  .page.active { display: block; }
+
+  /* ===== HOME ===== */
+  .hero {
+    position: relative;
+    height: 90vh;
+    min-height: 560px;
+    background: url('C:\Users\Sundaraj.R\Desktop\My_website\images\Header image.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(15,25,45,0.88) 55%, rgba(15,25,45,0.45) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    max-width: 640px;
+    margin-left: calc((100vw - 1200px) / 2);
+  }
+
+  @media (max-width:1240px) { .hero-content { margin-left: 2rem; } }
+
+  .hero-tag {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 2px;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.5px;
+  }
+
+  .hero h1 span { color: var(--orange); }
+
+  .hero p {
+    color: rgba(255,255,255,0.78);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+    max-width: 520px;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    padding: 0.85rem 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary:hover { background: var(--orange-dark); }
+
+  /* Sections */
+  .section { padding: 5rem 2rem; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.6rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .section-sub {
+    color: var(--text-grey);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 580px;
+    margin-bottom: 3rem;
+  }
+
+  /* About Snapshot */
+  .about-snap { background: var(--light-bg); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  @media(max-width:768px){ .about-grid { grid-template-columns: 1fr; } }
+
+  .about-img {
+    background: var(--navy);
+    height: 340px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-img::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(45deg, rgba(242,140,40,0.06) 0px, rgba(242,140,40,0.06) 1px, transparent 1px, transparent 12px);
+  }
+
+  .about-img-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+  }
+
+  .stats-row { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+  .stat { }
+  .stat-num { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--navy); }
+  .stat-num span { color: var(--orange); }
+  .stat-label { font-size: 0.78rem; color: var(--text-grey); text-transform: uppercase; letter-spacing: 1px; }
+
+  /* Services Grid on Home */
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+
+  .service-card {
+    background: var(--white);
+    border: 1px solid #e8ecf0;
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.25s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 3px;
+    background: var(--orange);
+    transition: width 0.3s;
+  }
+
+  .service-card:hover { border-color: var(--navy); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(31,53,86,0.12); }
+  .service-card:hover::before { width: 100%; }
+
+  .service-icon {
+    width: 48px; height: 48px;
+    background: rgba(31,53,86,0.07);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.2rem;
+  }
+
+  .service-icon svg { width: 24px; height: 24px; fill: var(--navy); }
+
+  .service-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; }
+  .service-card p { font-size: 0.88rem; color: var(--text-grey); line-height: 1.6; }
+
+  .service-arrow {
+    margin-top: 1rem;
+    color: var(--orange);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* Why Choose Us */
+  .why-bg { background: var(--navy); }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+
+  .why-card { text-align: center; padding: 1.5rem 1rem; }
+  .why-icon {
+    width: 56px; height: 56px;
+    background: rgba(242,140,40,0.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+  }
+  .why-icon svg { width: 26px; height: 26px; fill: var(--orange); }
+  .why-card h4 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
+  .why-card p { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+  .why-title-wrap .section-title { color: #fff; }
+
+  /* Process */
+  .process-steps {
+    display: flex;
+    gap: 0;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+
+  .process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+    max-width: 180px;
+    position: relative;
+  }
+
+  .step-num {
+    width: 52px; height: 52px;
+    background: var(--navy);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 0.8rem;
+    position: relative;
+    z-index: 1;
+    border: 3px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .process-step:hover .step-num { border-color: var(--orange); }
+
+  .process-step h4 { font-size: 0.82rem; font-weight: 700; color: var(--navy); }
+
+  .step-line {
+    flex: 1;
+    height: 2px;
+    background: #dce3ec;
+    min-width: 20px;
+    max-width: 60px;
+    margin-bottom: 2.5rem;
+  }
+
+  /* CTA Strip */
+  .cta-strip {
+    background: var(--navy);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .cta-strip h2 { color: #fff; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; margin-bottom: 1rem; }
+  .cta-strip p { color: rgba(255,255,255,0.65); margin-bottom: 2rem; font-size: 1rem; }
+
+  /* ===== SERVICES PAGE ===== */
+  .services-page-header {
+    background: var(--navy);
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+  }
+
+  .services-page-header h1 { color: #fff; font-size: 2rem; font-weight: 800; }
+  .services-page-header p { color: rgba(255,255,255,0.6); margin-top: 0.5rem; }
+
+  .services-list { background: var(--light-bg); padding: 3rem 2rem; }
+  .services-list-inner { max-width: 1100px; margin: 0 auto; }
+
+  .services-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .svc-nav-btn {
+    background: var(--white);
+    border: 1px solid #dce3ec;
+    border-radius: 4px;
+    padding: 1.5rem 1.75rem;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .svc-nav-btn:hover { border-color: var(--orange); box-shadow: 0 4px 16px rgba(242,140,40,0.12); }
+
+  .svc-nav-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: rgba(31,53,86,0.07);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .svc-nav-icon svg { width: 22px; height: 22px; fill: var(--navy); }
+
+  .svc-nav-btn h3 { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; }
+  .svc-nav-btn p { font-size: 0.78rem; color: var(--text-grey); }
+
+  .svc-detail { display: none; background: white; }
+  .svc-detail.open { display: block; }
+
+  .svc-detail-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+
+  .svc-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--orange);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .svc-detail h2 { font-size: 1.7rem; font-weight: 800; color: var(--navy); margin-bottom: 0.8rem; }
+  .svc-detail .svc-intro { color: var(--text-grey); line-height: 1.75; margin-bottom: 2rem; font-size: 0.95rem; }
+
+  .svc-section { margin-bottom: 2rem; }
+  .svc-section h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    padding: 0.6rem 1rem;
+    background: var(--light-bg);
+    border-left: 3px solid var(--orange);
+    margin-bottom: 0.8rem;
+  }
+
+  .svc-section ul { list-style: none; padding: 0 0 0 0.5rem; }
+  .svc-section ul li {
+    padding: 0.3rem 0 0.3rem 1.2rem;
+    position: relative;
+    font-size: 0.88rem;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  .svc-section ul li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 5px; height: 5px;
+    background: var(--orange);
+    border-radius: 50%;
+  }
+
+  .btn-contact-svc {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    padding: 0.85rem 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    margin-top: 1.5rem;
+    transition: background 0.2s;
+  }
+
+  .btn-contact-svc:hover { background: var(--orange-dark); }
+
+  /* ===== ABOUT PAGE ===== */
+  .page-hero {
+    background: var(--navy);
+    padding: 2rem 2rem 2rem;
+    text-align: center;
+  }
+  .page-hero h1 { color: #fff; font-size: 2rem; font-weight: 800; }
+  .page-hero p { color: rgba(255,255,255,0.6); margin-top: 0.5rem; }
+
+  .about-content { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+  .about-main-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
+  @media(max-width:768px){ .about-main-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+  .about-content p { color: var(--text-grey); line-height: 1.8; margin-bottom: 1rem; font-size: 0.95rem; }
+
+  .values-list { margin-top: 2rem; }
+  .value-item { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.2rem; }
+  .value-dot {
+    width: 10px; height: 10px; flex-shrink: 0;
+    background: var(--orange);
+    border-radius: 50%;
+    margin-top: 6px;
+  }
+  .value-item h4 { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; }
+  .value-item p { font-size: 0.82rem; margin: 0; }
+
+  .about-img-block {
+    background: var(--navy);
+    height: 360px;
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-img-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(45deg, rgba(242,140,40,0.05) 0px, rgba(242,140,40,0.05) 1px, transparent 1px, transparent 14px);
+  }
+
+  .software-strip { background: var(--light-bg); padding: 2rem 2rem 0.5rem; }
+  .software-strip-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+  .software-strip h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 1.5rem; letter-spacing: 1px; text-transform: uppercase; }
+  .software-tags { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+  .sw-tag {
+    padding: 0.45rem 1.1rem;
+    background: white;
+    border: 1px solid #dce3ec;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--navy);
+    font-family: 'Montserrat', sans-serif;
+  }
+
+
+
+  /* ===== CAREERS PAGE ===== */
+  .careers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+
+  .career-card {
+    background: var(--white);
+    border: 1px solid #dce3ec;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: box-shadow 0.25s;
+  }
+
+  .career-card:hover { box-shadow: 0 8px 28px rgba(31,53,86,0.12); }
+
+  .career-card-header {
+    background: var(--navy);
+    padding: 1.5rem;
+    position: relative;
+  }
+
+  .career-badge {
+    display: inline-block;
+    background: rgba(242,140,40,0.18);
+    color: var(--orange);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  .career-card-header h3 { font-size: 1.1rem; font-weight: 800; color: #fff; }
+
+  .career-card-body { padding: 1.5rem; }
+
+  .career-row { margin-bottom: 1rem; }
+  .career-row h5 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--orange);
+    margin-bottom: 0.35rem;
+  }
+
+  .career-row p, .career-row ul { font-size: 0.85rem; color: var(--text-grey); line-height: 1.6; }
+  .career-row ul { padding-left: 1.2rem; }
+  .career-row ul li { margin-bottom: 0.2rem; }
+
+  .btn-apply {
+    display: block;
+    width: 100%;
+    background: var(--navy);
+    color: white;
+    padding: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 1.2rem;
+    transition: background 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-apply:hover { background: var(--orange); }
+
+  .general-req {
+    max-width: 1100px;
+    margin: 3rem auto 0;
+    background: var(--light-bg);
+    border-radius: 4px;
+    padding: 2rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  @media(max-width:600px){ .general-req { grid-template-columns: 1fr; } }
+
+  .general-req h4 { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 0.8rem; }
+  .general-req ul { list-style: none; padding: 0; }
+  .general-req ul li { font-size: 0.85rem; color: var(--text-grey); padding: 0.2rem 0 0.2rem 1rem; position: relative; }
+  .general-req ul li::before { content: '→'; position: absolute; left: 0; color: var(--orange); font-size: 0.7rem; top: 0.3rem; }
+
+  /* ===== CONTACT PAGE ===== */
+  .contact-wrap { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; }
+  @media(max-width:768px){ .contact-wrap { grid-template-columns: 1fr; gap: 2rem; } }
+
+  .contact-form-box { background: var(--light-bg); padding: 2.5rem; border-radius: 4px; }
+  .contact-form-box h3 { font-size: 1.3rem; font-weight: 800; color: var(--navy); margin-bottom: 0.4rem; }
+  .contact-form-box .sub { font-size: 0.85rem; color: var(--text-grey); margin-bottom: 1.8rem; }
+
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; font-size: 0.78rem; font-weight: 700; color: var(--navy); letter-spacing: 0.5px; margin-bottom: 0.4rem; text-transform: uppercase; }
+  .form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid #dce3ec;
+    border-radius: 4px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    background: white;
+    color: var(--text-dark);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--navy); }
+  .form-group textarea { height: 120px; resize: vertical; }
+
+  .contact-info { padding-top: 1rem; }
+  .contact-info h3 { font-size: 1.1rem; font-weight: 800; color: var(--navy); margin-bottom: 1.5rem; }
+
+  .contact-item {
+    display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem;
+  }
+
+  .ci-icon {
+    width: 42px; height: 42px; flex-shrink: 0;
+    background: var(--navy);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .ci-icon svg { width: 18px; height: 18px; fill: white; }
+
+  .contact-item h5 { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-grey); margin-bottom: 0.2rem; }
+  .contact-item a { color: var(--navy); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+  .contact-item a:hover { color: var(--orange); }
+  .contact-item p { font-size: 0.88rem; color: var(--navy); font-weight: 600; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #111b2b;
+    padding: 3rem 2rem 1.5rem;
+  }
+
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem; }
+  @media(max-width:768px){ .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+
+  .footer-brand p { color: rgba(255,255,255,0.45); font-size: 0.83rem; margin-top: 0.8rem; line-height: 1.7; max-width: 280px; }
+
+  footer h5 {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1rem;
+  }
+
+  footer ul { list-style: none; padding: 0; }
+  footer ul li { margin-bottom: 0.5rem; }
+  footer ul li a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+  footer ul li a:hover { color: var(--orange); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-inner">
+    <a class="logo" onclick="showPage('home')">
+      <div class="logo-icon" style="background:none;">
+ 	 <img src="images/Axeron.png" style="width:100%;height:100%;object-fit:contain;">
+	</div>
+      <div class="logo-text">
+        <div class="brand">AXERON</div>
+        <div class="sub">Engineering Solutions</div>
+      </div>
+    </a>
+    <nav>
+      <a onclick="showPage('home')" id="nav-home" class="active">Home</a>
+      <a onclick="showPage('services')" id="nav-services">Services</a>
+      <a onclick="showPage('about')" id="nav-about">About Us</a>
+      <a onclick="showPage('careers')" id="nav-careers">Careers</a>
+      <a onclick="showPage('contact')" id="nav-contact">Contact</a>
+      <a onclick="showPage('contact')" class="btn-quote">Get Quote</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HOME PAGE ===== -->
+<div id="page-home" class="page active">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Tekla Structures Specialists</div>
+      <h1>Precision Steel Detailing &<br><span>Engineering Solutions</span></h1>
+      <p>Tekla-based 3D modeling, fabrication drawings, and structural detailing services for global industrial and commercial projects.</p>
+      <button class="btn-primary" onclick="showPage('contact')">Get Quote</button>
+    </div>
+  </div>
+
+  <!-- About Snapshot -->
+  <div class="section about-snap">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div>
+          <div class="section-label">Who We Are</div>
+          <h2 class="section-title">Chennai-Based Structural Detailing Experts</h2>
+          <p style="color:var(--text-grey);line-height:1.8;font-size:0.95rem;">Axeron Engineering Solutions is a specialist structural detailing and CAD services firm based in Chennai. We deliver high-accuracy Tekla Structures models, fabrication drawings, and analysis outputs for steel fabricators, EPC contractors, and structural engineering firms worldwide.</p>
+          <div class="stats-row">
+            <div class="stat"><div class="stat-num">Tekla<span>®</span></div><div class="stat-label">Structures</div></div>
+            <div class="stat"><div class="stat-num">STAAD<span>.</span>Pro</div><div class="stat-label">Analysis</div></div>
+            <div class="stat"><div class="stat-num">UK<span> &amp; </span>IN</div><div class="stat-label">Markets</div></div>
+          </div>
+        </div>
+        <div class="about-img">
+ 	 <img src="C:\Users\Sundaraj.R\Desktop\My_website\images\tekla img.png" style="width:100%;height:100%;object-fit:cover;">
+	</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Overview -->
+  <div class="section">
+    <div class="section-inner">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Our Core Services</h2>
+      <p class="section-sub">From initial 3D modeling to final fabrication-ready deliverables — we cover the full steel detailing workflow.</p>
+      <div class="services-grid">
+        <div class="service-card" onclick="openService('tekla3d')">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <h3>Tekla Structures 3D Modelling</h3>
+          <p>Complete, fabrication-ready 3D models with proper hierarchy, equipment supports, and full model organization.</p>
+          <div class="service-arrow">View Service →</div>
+        </div>
+        <div class="service-card" onclick="openService('fab')">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+          <h3>Fabrication &amp; Shop Drawings</h3>
+          <p>GA drawings, single part drawings, assembly drawings, weld maps, and full revision cloud updates.</p>
+          <div class="service-arrow">View Service →</div>
+        </div>
+        <div class="service-card" onclick="openService('connection')">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg></div>
+          <h3>Connection Detailing</h3>
+          <p>Bolted and welded connection detailing, shop weld maps, gusset and bracket detailing with full numbering.</p>
+          <div class="service-arrow">View Service →</div>
+        </div>
+        <div class="service-card" onclick="openService('bom')">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2M9 12h6M9 16h6"/></svg></div>
+          <h3>BOM &amp; NC File Generation</h3>
+          <p>Complete bolt, assembly, material, and single part lists. DSTV/NC files, DXF, and DWG fabrication data.</p>
+          <div class="service-arrow">View Service →</div>
+        </div>
+        <div class="service-card" onclick="openService('cad')">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+          <h3>CAD Piping Design</h3>
+          <p>2D and 3D piping layout drafting, pipe support design, and isometric drawing generation.</p>
+          <div class="service-arrow">View Service →</div>
+        </div>
+        <div class="service-card" onclick="openService('staad')">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <h3>STAAD Pro Structural Analysis</h3>
+          <p>Structural analysis, load calculations, member sizing, and design compliance for steel structures.</p>
+          <div class="service-arrow">View Service →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why Choose Us -->
+  <div class="section why-bg">
+    <div class="section-inner">
+      <div class="why-title-wrap" style="text-align:center;margin-bottom:3rem;">
+        <div class="section-label">Our Edge</div>
+        <h2 class="section-title">Why Choose Axeron</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <h4>Model Accuracy</h4>
+          <p>Every deliverable checked against design drawings before submission</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h4>Fast Turnaround</h4>
+          <p>Structured workflows ensure on-time delivery even for complex projects</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+          <h4>Cost Efficiency</h4>
+          <p>Competitive offshore pricing without compromising on deliverable quality</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h4>Industry Standards</h4>
+          <p>Outputs aligned with BS, AISC, and project-specific fabrication specs</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <h4>Dedicated Team</h4>
+          <p>Experienced Tekla modelers, detailers, and checkers on every project</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <h4>IFC &amp; Trimble Ready</h4>
+          <p>IFC exports, Trimble Connect integration, and full model coordination</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Process -->
+  <div class="section" style="background:var(--light-bg)">
+    <div class="section-inner">
+      <div style="text-align:center;margin-bottom:1rem;">
+        <div class="section-label">How We Work</div>
+        <h2 class="section-title">Our Workflow</h2>
+      </div>
+      <div class="process-steps">
+        <div class="process-step"><div class="step-num">01</div><h4>Input Drawings</h4></div>
+        <div class="step-line"></div>
+        <div class="process-step"><div class="step-num">02</div><h4>3D Modelling</h4></div>
+        <div class="step-line"></div>
+        <div class="process-step"><div class="step-num">03</div><h4>Detailing</h4></div>
+        <div class="step-line"></div>
+        <div class="process-step"><div class="step-num">04</div><h4>Review</h4></div>
+        <div class="step-line"></div>
+        <div class="process-step"><div class="step-num">05</div><h4>Delivery</h4></div>
+      </div>
+    </div>
+  </div>
+
+<div class="software-strip">
+    <div class="software-strip-inner">
+      <h3>Software &amp; Tools</h3>
+      <div class="software-tags">
+  	<span class="sw-tag">Tekla Structures</span>
+  	<span class="sw-tag">STAAD Pro</span>
+  	<span class="sw-tag">AutoCAD</span>
+  	<span class="sw-tag">CADWORKS</span>
+	</div>
+    </div>
+  </div>
+
+  <!-- CTA Strip -->
+  <div class="cta-strip">
+    <h2>Start Your Project With Axeron</h2>
+    <p>Send us your drawings and we'll respond with a scope and timeline within 24 hours.</p>
+    <button class="btn-primary" onclick="showPage('contact')">Contact Us</button>
+  </div>
+
+</div><!-- /home -->
+
+<!-- ===== SERVICES PAGE ===== -->
+<div id="page-services" class="page">
+  <div class="services-page-header">
+    <h1>Our Services</h1>
+    <p>Select a service to view detailed deliverables and scope</p>
+  </div>
+
+  <!-- Service Nav -->
+  <div id="svc-nav" class="services-list">
+    <div class="services-list-inner">
+      <div class="services-nav-grid">
+        <button class="svc-nav-btn" onclick="openService('tekla3d')">
+          <div class="svc-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div><h3>Tekla Structures 3D Modelling</h3><p>Complete model with hierarchy &amp; coordination</p></div>
+        </button>
+        <button class="svc-nav-btn" onclick="openService('fab')">
+          <div class="svc-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+          <div><h3>Fabrication &amp; Shop Drawings</h3><p>GA drawings, assembly &amp; weld maps</p></div>
+        </button>
+        <button class="svc-nav-btn" onclick="openService('connection')">
+          <div class="svc-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83"/></svg></div>
+          <div><h3>Connection Detailing</h3><p>Bolted, welded, gussets &amp; stiffeners</p></div>
+        </button>
+        <button class="svc-nav-btn" onclick="openService('bom')">
+          <div class="svc-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div>
+          <div><h3>BOM &amp; NC File Generation</h3><p>Material lists, DSTV, DXF &amp; reports</p></div>
+        </button>
+        <button class="svc-nav-btn" onclick="openService('cad')">
+          <div class="svc-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+          <div><h3>CAD Piping Design</h3><p>2D/3D piping layout &amp; isometrics</p></div>
+        </button>
+        <button class="svc-nav-btn" onclick="openService('staad')">
+          <div class="svc-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div><h3>STAAD Pro Structural Analysis</h3><p>Load analysis &amp; member design</p></div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Detail Panels -->
+
+  <div id="svc-tekla3d" class="svc-detail">
+    <div class="svc-detail-inner">
+      <button class="svc-back" onclick="closeSvcDetail()">← Back to Services</button>
+      <h2>Tekla Structures 3D Modelling</h2>
+      <p class="svc-intro">We build complete, fabrication-ready Tekla Structures 3D models for industrial skids, structural steel, and complex assemblies. All models are organized with proper hierarchy, naming conventions, and phase markings ready for drawing extraction and downstream use.</p>
+
+      <div class="svc-section">
+        <h4>3D Model Deliverables</h4>
+        <ul>
+          <li>Complete Tekla Structures 3D model</li>
+          <li>Main frame, skid beams, base frame</li>
+          <li>Equipment supports and pipe support brackets</li>
+          <li>Stiffeners, gussets, and lifting lugs / padeyes</li>
+          <li>Gratings, handrails, and ladders</li>
+          <li>Anchor bolt layouts</li>
+        </ul>
+      </div>
+
+      <div class="svc-section">
+        <h4>GA (General Arrangement) Drawings</h4>
+        <ul>
+          <li>Skid overall GA (plan, elevation, sections)</li>
+          <li>Equipment layout integration (if provided)</li>
+          <li>Pipe support GA (if applicable)</li>
+          <li>Lifting arrangement GA</li>
+          <li>Transportation support GA</li>
+          <li>Bolt and weld details overview</li>
+        </ul>
+      </div>
+
+      <div class="svc-section">
+        <h4>Model Review &amp; Coordination</h4>
+        <ul>
+          <li>IFC export for client reviewers</li>
+          <li>Trimble Connect model sharing</li>
+          <li>Revision-based model modifications</li>
+          <li>Comment resolution sheet</li>
+          <li>Clash check report (model-based)</li>
+          <li>Weight summary &amp; CoG (centre of gravity) report</li>
+        </ul>
+      </div>
+
+      <button class="btn-contact-svc" onclick="contactForService('Tekla Structures 3D Modelling')">Enquire About This Service</button>
+    </div>
+  </div>
+
+  <div id="svc-fab" class="svc-detail">
+    <div class="svc-detail-inner">
+      <button class="svc-back" onclick="closeSvcDetail()">← Back to Services</button>
+      <h2>Fabrication &amp; Shop Drawings</h2>
+      <p class="svc-intro">We produce a full suite of fabrication drawings directly from Tekla models — single part drawings, assembly drawings, weld maps, and marking plans — all aligned to project specifications and fabrication standards.</p>
+
+      <div class="svc-section">
+        <h4>Fabrication Drawings</h4>
+        <ul>
+          <li>Single part drawings</li>
+          <li>Assembly drawings</li>
+          <li>Full weld maps</li>
+          <li>Marking plans for all assembly groups</li>
+          <li>Fabrication notes per project specifications</li>
+          <li>Camber details (if applicable)</li>
+          <li>Cutting, cope, and bevel details</li>
+          <li>Revision cloud updates</li>
+        </ul>
+      </div>
+
+      <div class="svc-section">
+        <h4>GA Drawings</h4>
+        <ul>
+          <li>Skid overall GA drawing (plan, elevation, sections)</li>
+          <li>Lifting arrangement GA</li>
+          <li>Transportation support GA</li>
+          <li>Equipment layout integration</li>
+        </ul>
+      </div>
+
+      <div class="svc-section">
+        <h4>Reports Included</h4>
+        <ul>
+          <li>Assembly/erection sequence report</li>
+          <li>Weld volume report</li>
+          <li>Weight summary</li>
+        </ul>
+      </div>
+
+      <button class="btn-contact-svc" onclick="contactForService('Fabrication & Shop Drawings')">Enquire About This Service</button>
+    </div>
+  </div>
+
+  <div id="svc-connection" class="svc-detail">
+    <div class="svc-detail-inner">
+      <button class="svc-back" onclick="closeSvcDetail()">← Back to Services</button>
+      <h2>Connection Detailing</h2>
+      <p class="svc-intro">We provide thorough connection detailing for both bolted and welded configurations, covering shop welds, field welds, gussets, stiffeners, and lifting reinforcements with full reference tables.</p>
+
+      <div class="svc-section">
+        <h4>Connection Details</h4>
+        <ul>
+          <li>Bolted and welded connection detailing</li>
+          <li>Shop weld details (size, type, length)</li>
+          <li>Field weld indication</li>
+          <li>Connection numbering and reference tables</li>
+          <li>Gusset, stiffener, and bracket detailing</li>
+          <li>Lifting lug reinforcement details</li>
+        </ul>
+      </div>
+
+      <button class="btn-contact-svc" onclick="contactForService('Connection Detailing')">Enquire About This Service</button>
+    </div>
+  </div>
+
+  <div id="svc-bom" class="svc-detail">
+    <div class="svc-detail-inner">
+      <button class="svc-back" onclick="closeSvcDetail()">← Back to Services</button>
+      <h2>BOM &amp; NC File Generation</h2>
+      <p class="svc-intro">We extract and deliver complete bills of materials and fabrication data files directly from the Tekla model — covering bolt lists, assembly lists, material summaries, and machine-ready NC output for plate cutting and CNC fabrication.</p>
+
+      <div class="svc-section">
+        <h4>Bill of Materials (BOM)</h4>
+        <ul>
+          <li>Bolt lists</li>
+          <li>Assembly lists</li>
+          <li>Material lists</li>
+          <li>Single part lists</li>
+          <li>Delivered in Excel, PDF, or custom formats</li>
+        </ul>
+      </div>
+
+      <div class="svc-section">
+        <h4>Fabrication Data Files</h4>
+        <ul>
+          <li>DSTV / NC files for CNC machines</li>
+          <li>DXF files for plate cutting</li>
+          <li>DWG files for documentation</li>
+        </ul>
+      </div>
+
+      <div class="svc-section">
+        <h4>Reports</h4>
+        <ul>
+          <li>Clash check report (model-based)</li>
+          <li>Weld volume report</li>
+          <li>Weight summary and CoG report</li>
+          <li>Assembly and erection sequence report</li>
+        </ul>
+      </div>
+
+      <button class="btn-contact-svc" onclick="contactForService('BOM & NC File Generation')">Enquire About This Service</button>
+    </div>
+  </div>
+
+  <div id="svc-cad" class="svc-detail">
+    <div class="svc-detail-inner">
+      <button class="svc-back" onclick="closeSvcDetail()">← Back to Services</button>
+      <h2>CAD Piping Design</h2>
+      <p class="svc-intro">We provide 2D and 3D CAD piping design services for industrial plants and process skids — from initial layout drafting to pipe support design and final isometric drawing production.</p>
+
+      <div class="svc-section">
+        <h4>Deliverables</h4>
+        <ul>
+          <li>2D piping layout drawings (plan and elevation)</li>
+          <li>3D piping layout models</li>
+          <li>Pipe support design and GA drawings</li>
+          <li>Isometric drawing generation</li>
+          <li>Pipe routing coordination with structural model</li>
+        </ul>
+      </div>
+
+      <button class="btn-contact-svc" onclick="contactForService('CAD Piping Design')">Enquire About This Service</button>
+    </div>
+  </div>
+
+  <div id="svc-staad" class="svc-detail">
+    <div class="svc-detail-inner">
+      <button class="svc-back" onclick="closeSvcDetail()">← Back to Services</button>
+      <h2>STAAD Pro Structural Analysis</h2>
+      <p class="svc-intro">We use STAAD Pro to perform structural analysis and design for steel structures — generating load calculations, member sizing, and compliance documentation to support fabrication and engineering sign-off.</p>
+
+      <div class="svc-section">
+        <h4>Analysis Scope</h4>
+        <ul>
+          <li>Static and dynamic load analysis</li>
+          <li>Dead, live, wind, and seismic load combinations</li>
+          <li>Member sizing and section selection</li>
+          <li>Support and foundation reaction reports</li>
+          <li>Code compliance verification (IS, BS, AISC)</li>
+        </ul>
+      </div>
+
+      <div class="svc-section">
+        <h4>Deliverables</h4>
+        <ul>
+          <li>STAAD analysis report</li>
+          <li>Member design summary</li>
+          <li>Load combination output sheets</li>
+          <li>Displacement and deflection report</li>
+        </ul>
+      </div>
+
+      <button class="btn-contact-svc" onclick="contactForService('STAAD Pro Structural Analysis')">Enquire About This Service</button>
+    </div>
+  </div>
+
+</div><!-- /services -->
+
+<!-- ===== ABOUT PAGE ===== -->
+<div id="page-about" class="page">
+  <div class="page-hero">
+    <h1>About Us</h1>
+    <p>Engineering precision, delivered from Chennai to the world</p>
+  </div>
+
+  <div class="about-content">
+    <div class="about-main-grid">
+      <div>
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title">Built on Steel,<br>Driven by Precision</h2>
+        <p>Axeron Engineering Solutions is a Chennai-based structural detailing and CAD services firm specializing in Tekla Structures modelling, fabrication drawing production, and structural analysis for global clients.</p>
+        <p>We work with steel fabricators, EPC contractors, and structural engineering firms across the UK and India — providing the detailed technical deliverables that drive fabrication and construction.</p>
+        <p>Our team combines hands-on Tekla expertise with a deep understanding of fabrication workflows, ensuring every drawing and model we produce is production-ready from day one.</p>
+
+        <div class="values-list">
+          <div class="value-item"><div class="value-dot"></div><div><h4>Accuracy First</h4><p style="color:var(--text-grey);font-size:0.82rem;line-height:1.6;">We check every deliverable against the source drawings before sending.</p></div></div>
+          <div class="value-item"><div class="value-dot"></div><div><h4>Clear Communication</h4><p style="color:var(--text-grey);font-size:0.82rem;line-height:1.6;">Regular updates, fast responses, and structured revision processes.</p></div></div>
+          <div class="value-item"><div class="value-dot"></div><div><h4>Global Standards</h4><p style="color:var(--text-grey);font-size:0.82rem;line-height:1.6;">Outputs aligned with BS, AISC, and client-specific specifications.</p></div></div>
+        </div>
+      </div>
+      <div class="about-img-block">
+ 	 <img src="C:\Users\Sundaraj.R\Desktop\My_website\images\freepik.jpg" style="width:100%;height:100%;object-fit:cover;">
+	</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CAREERS PAGE ===== -->
+<div id="page-careers" class="page">
+  <div class="page-hero">
+    <h1>Careers</h1>
+    <p>Join the Axeron team — project-based roles for experienced Tekla professionals</p>
+  </div>
+
+  <div class="section">
+    <div class="section-inner">
+      <div class="section-label">Open Positions</div>
+      <h2 class="section-title" style="margin-bottom:2.5rem;">Current Roles</h2>
+      <div class="careers-grid">
+
+        <!-- Tekla Modeler -->
+        <div class="career-card">
+          <div class="career-card-header">
+            <div class="career-badge">Open</div>
+            <h3>Tekla Modeler</h3>
+          </div>
+          <div class="career-card-body">
+            <div class="career-row">
+              <h5>Role Focus</h5>
+              <p>Creation of accurate 3D structural models using Tekla Structures, aligned with design drawings and project standards.</p>
+            </div>
+            <div class="career-row">
+              <h5>Experience</h5>
+              <p>3+ years — independent model handling required</p>
+            </div>
+            <div class="career-row">
+              <h5>Knowledge Requirements</h5>
+              <ul>
+                <li>Tekla Structures fundamentals</li>
+                <li>Structural steel components and connections</li>
+                <li>Reading GA drawings and design intent</li>
+                <li>Basic clash awareness and model organization</li>
+              </ul>
+            </div>
+            <a class="btn-apply" href="mailto:info@axeron.in?subject=Applying for Tekla Modeler">Apply Now</a>
+          </div>
+        </div>
+
+        <!-- Tekla Detailer -->
+        <div class="career-card">
+          <div class="career-card-header">
+            <div class="career-badge">Open</div>
+            <h3>Tekla Detailer</h3>
+          </div>
+          <div class="career-card-body">
+            <div class="career-row">
+              <h5>Role Focus</h5>
+              <p>Preparation of detailed shop drawings, assembly drawings, and fabrication outputs from Tekla models.</p>
+            </div>
+            <div class="career-row">
+              <h5>Experience</h5>
+              <p>5+ years — complex detailing and coordination</p>
+            </div>
+            <div class="career-row">
+              <h5>Knowledge Requirements</h5>
+              <ul>
+                <li>Steel detailing standards and codes</li>
+                <li>Bolt, weld, and connection detailing</li>
+                <li>Drawing extraction and documentation</li>
+                <li>Fabrication workflow understanding</li>
+              </ul>
+            </div>
+            <a class="btn-apply" href="mailto:info@axeron.in?subject=Applying for Tekla Detailer">Apply Now</a>
+          </div>
+        </div>
+
+        <!-- Tekla Checker -->
+        <div class="career-card">
+          <div class="career-card-header">
+            <div class="career-badge">Open</div>
+            <h3>Tekla Checker</h3>
+          </div>
+          <div class="career-card-body">
+            <div class="career-row">
+              <h5>Role Focus</h5>
+              <p>Verification of models and drawings for accuracy, completeness, and compliance before client submission or fabrication.</p>
+            </div>
+            <div class="career-row">
+              <h5>Experience</h5>
+              <p>6+ years — senior checker / lead reviewer level</p>
+            </div>
+            <div class="career-row">
+              <h5>Knowledge Requirements</h5>
+              <ul>
+                <li>Deep understanding of steel detailing standards</li>
+                <li>Error detection in GA, assembly &amp; shop drawings</li>
+                <li>Connection validation and constructability review</li>
+                <li>Coordination with modelers and detailers</li>
+              </ul>
+            </div>
+            <a class="btn-apply" href="mailto:info@axeron.in?subject=Applying for Tekla Checker">Apply Now</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- General Requirements -->
+      <div class="general-req">
+        <div>
+          <h4>General Requirements</h4>
+          <ul>
+            <li>Strong understanding of structural steel workflows</li>
+            <li>Ability to interpret engineering drawings</li>
+            <li>Familiarity with project coordination practices</li>
+            <li>Discipline in documentation and revision control</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Work Structure</h4>
+          <ul>
+            <li>Project-based assignments</li>
+            <li>Defined deliverables and review cycles</li>
+            <li>Collaboration with design and fabrication teams</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONTACT PAGE ===== -->
+<div id="page-contact" class="page">
+  <div class="page-hero">
+    <h1>Contact Us</h1>
+    <p>Send us your drawings or project brief — we'll respond within 24 hours</p>
+  </div>
+
+  <div class="contact-wrap">
+    <div class="contact-form-box">
+      <h3>Send Us a Message</h3>
+      <p class="sub" id="contact-service-label">We'll get back to you within one business day.</p>
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" id="form-name" placeholder="Full name">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="form-email" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" id="form-phone" placeholder="+91 or +44...">
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea id="form-message" placeholder="Describe your project or enquiry..."></textarea>
+      </div>
+      <button class="btn-primary" onclick="sendEnquiry()" style="width:100%;text-align:center;padding:0.9rem;">Send Message</button>
+    </div>
+
+    <div class="contact-info">
+      <h3>Get in Touch Directly</h3>
+
+      <div class="contact-item">
+        <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div>
+          <h5>Email</h5>
+          <a href="mailto:axeronengineeringsolutions@gmail.com">axeronengineeringsolutions@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div>
+        <div>
+          <h5>LinkedIn</h5>
+          <a href="https://www.linkedin.com/company/axeron-engineering-solutions/" target="_blank">linkedin</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div>
+          <h5>Location</h5>
+          <p>Chennai, Tamil Nadu, India</p>
+        </div>
+      </div>	
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" onclick="showPage('home')" style="cursor:pointer;">
+          <div class="logo-icon" style="background:none;width:36px;height:36px;">
+  		<img src="images/Axeron.png" style="width:100%;height:100%;object-fit:contain;">
+	   </div>
+          <div class="logo-text">
+            <div class="brand">AXERON</div>
+            <div class="sub">Engineering Solutions</div>
+          </div>
+        </div>
+        <p>Specialist structural detailing and CAD services for global steel fabricators and engineering firms.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a onclick="showPage('home')">Home</a></li>
+          <li><a onclick="showPage('services')">Services</a></li>
+          <li><a onclick="showPage('about')">About Us</a></li>
+          <li><a onclick="showPage('careers')">Careers</a></li>
+          <li><a onclick="showPage('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a onclick="openService('tekla3d')">Tekla 3D Modelling</a></li>
+          <li><a onclick="openService('fab')">Fabrication Drawings</a></li>
+          <li><a onclick="openService('connection')">Connection Detailing</a></li>
+          <li><a onclick="openService('bom')">BOM &amp; NC Files</a></li>
+          <li><a onclick="openService('staad')">STAAD Pro Analysis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Axeron Engineering Solutions. All rights reserved.</p>
+      <p>Chennai, Tamil Nadu, India</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    var navEl = document.getElementById('nav-' + name);
+    if (navEl) navEl.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (name !== 'contact') {
+      document.getElementById('contact-service-label').textContent = "We'll get back to you within one business day.";
+      document.getElementById('form-message').placeholder = 'Describe your project or enquiry...';
+    }
+  }
+
+  function openService(id) {
+    showPage('services');
+    document.querySelectorAll('.svc-detail').forEach(d => d.classList.remove('open'));
+    document.getElementById('svc-nav').style.display = 'none';
+    document.getElementById('svc-' + id).classList.add('open');
+    setTimeout(() => window.scrollTo({ top: 70, behavior: 'smooth' }), 50);
+  }
+
+  function closeSvcDetail() {
+    document.querySelectorAll('.svc-detail').forEach(d => d.classList.remove('open'));
+    document.getElementById('svc-nav').style.display = 'block';
+    window.scrollTo({ top: 70, behavior: 'smooth' });
+  }
+
+  function contactForService(serviceName) {
+    showPage('contact');
+    document.getElementById('contact-service-label').textContent = 'Enquiry for: ' + serviceName;
+    document.getElementById('form-message').placeholder = 'Tell us more about your ' + serviceName + ' requirements...';
+    setTimeout(() => window.scrollTo({ top: 70, behavior: 'smooth' }), 50);
+  }
+
+  function sendEnquiry() {
+    var name = document.getElementById('form-name').value;
+    var email = document.getElementById('form-email').value;
+    var phone = document.getElementById('form-phone').value;
+    var msg = document.getElementById('form-message').value;
+    var svcLabel = document.getElementById('contact-service-label').textContent;
+    var subject = svcLabel.startsWith('Enquiry for:') ? svcLabel : 'Project Enquiry – Axeron Engineering';
+    var body = 'Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\n\n' + msg;
+    window.location.href = 'mailto:info@axeron.in?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  }
+</script>
+
+</body>
+</html>
